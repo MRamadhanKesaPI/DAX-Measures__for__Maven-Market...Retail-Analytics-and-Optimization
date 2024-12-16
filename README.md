@@ -12,3 +12,40 @@ Following this, I focus on the key questions that guide the analysis. These ques
 4. Customer Detail (DAX + Visual Report)
 5. Operational Efficiency (DAX + Visual Report)
 
+### 1. Foundational Calculations in DAX
+- How do key metrics like total orders, total sold, and total returns vary across different dimensions?
+- What do total revenue and cost metrics reveal about profitability?
+- How does total profit correlate with other performance metrics?
+
+Below are the DAX measures.
+```DAX
+Total Orders = COUNT(Orders[quantity])
+
+Total Sold = SUM(Orders[quantity])
+
+Total Returns = SUM(Returns[quantity])
+ 
+Total Revenue = SUMX(Orders,Orders[quantity] * RELATED(Products[product_retail_price]))
+
+Total Cost = SUMX(Orders,Orders[quantity] * RELATED(Products[product_cost]))
+
+Total Profit = [Total Revenue] - [Total Cost]
+```
+
+### 2. Sales Topline Performance (DAX + Visual Report)
+- What is the overall sales trend?
+- What is the revenue trend over time?
+- Which country generates the most revenue?
+- Which product brand has the highest revenue?
+- Which product brand has the highest profit margin?
+
+Below are the DAX measures.
+```DAX
+Profit Margin = DIVIDE([Total Profit],[Total Revenue],0)
+
+Return Rate (%) = DIVIDE([Total Returns], [Total Sold], 0)
+
+YTD Revenue = TOTALYTD([Total Revenue], 'Calendar'[date])
+
+Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date], -1, YEAR))
+```
