@@ -13,7 +13,7 @@ Following this, I focus on the key questions that guide the analysis. These ques
 5. Operational Efficiency (DAX + Visual Report)
 
 
-### 1. Foundational Calculations in DAX
+### 1. Foundational Measures
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
 - What do total revenue and cost metrics reveal about profitability?
 - How does total profit correlate with other performance metrics?
@@ -34,7 +34,7 @@ Total Profit = [Total Revenue] - [Total Cost]
 ```
 
 
-### 2. Sales Topline Performance (DAX + Visual Report)
+### 2. Sales Topline Performance 
 - What is the overall sales trend?
 - What is the revenue trend over time?
 - Which country generates the most revenue?
@@ -53,7 +53,7 @@ Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date],
 ```
 
 
-### 3. Product Detail (DAX + Visual Report)
+### 3. Product Detail 
 - Which products have the best profit margins and still meet their sales targets?
 - Are there any hidden opportunities with products that have high profit margins but lower sales?
 - How can Maven Market improve 
@@ -87,7 +87,7 @@ Product Metric Selections = {
 ```
 
 
-### 4. Customer Detail (DAX + Visual Report)
+### 4. Customer Detail
 - What is the overall trend in customer growth?
 - How has customer behavior changed over time?
 - What patterns in customer demographics indicate opportunities for growth?
@@ -106,3 +106,13 @@ Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0)
 ```
 
 
+### 5. Operational Efficiency 
+- How does store performance vary across different country?
+- Are there specific stores that consistently underperform over time?
+
+Below are the DAX measures.
+```DAX
+Revenue Per SQFT = [Total Revenue] / SUM(Stores[total_sqft])
+
+Order Frequency Per Customer = DIVIDE([Total Orders], [Total Customers], 0)
+```
