@@ -12,6 +12,7 @@ Following this, I focus on the key questions that guide the analysis. These ques
 4. Customer Detail (DAX + Visual Report)
 5. Operational Efficiency (DAX + Visual Report)
 
+
 ### 1. Foundational Calculations in DAX
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
 - What do total revenue and cost metrics reveal about profitability?
@@ -32,6 +33,7 @@ Total Cost = SUMX(Orders,Orders[quantity] * RELATED(Products[product_cost]))
 Total Profit = [Total Revenue] - [Total Cost]
 ```
 
+
 ### 2. Sales Topline Performance (DAX + Visual Report)
 - What is the overall sales trend?
 - What is the revenue trend over time?
@@ -49,3 +51,39 @@ YTD Revenue = TOTALYTD([Total Revenue], 'Calendar'[date])
 
 Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date], -1, YEAR))
 ```
+
+
+### 3. Product Detail (DAX + Visual Report)
+- Which products have the best profit margins and still meet their sales targets?
+- Are there any hidden opportunities with products that have high profit margins but lower sales?
+- How can Maven Market improve 
+
+Below are the DAX measures.
+```DAX
+Previous Month Sold = CALCULATE([Total Sold], DATEADD('Calendar'[date], -1, MONTH))
+
+10 % Sold Target = [Previous Month Sold] * 1.1
+
+Sold Target Gap = [Total Sold] - [10 % Sold Target]
+
+Previous Month Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date], -1, MONTH)) 
+
+10 % Revenue Target = [Previous Month Revenue] * 1.1
+
+Revenue Target Gap = [Total Revenue] - [10 % Revenue Target]
+
+Previous Month Profit = CALCULATE([Total Profit], DATEADD('Calendar'[date], -1, MONTH))
+
+10 % Profit Target = [Previous Month Profit] * 1.1
+
+Profit Target Gap = [Total Profit] - [10 % Profit Target]
+
+Product Metric Selections = {
+			     ("Sold", NAMEOF('Measures Table'[Total Sold]), 0),
+    			     ("Revenue", NAMEOF('Measures Table'[Total Revenue]), 1),
+                             ("Profit", NAMEOF('Measures Table'[Total Profit]), 2),
+                             ("Returns", NAMEOF('Measures Table'[Total Returns]), 3)
+                             }
+```
+
+
