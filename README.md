@@ -87,3 +87,22 @@ Product Metric Selections = {
 ```
 
 
+### 4. Customer Detail (DAX + Visual Report)
+- What is the overall trend in customer growth?
+- How has customer behavior changed over time?
+- What patterns in customer demographics indicate opportunities for growth?
+
+Below are the DAX measures.
+```DAX
+Total Customers = DISTINCTCOUNT(Orders[customer_id])
+
+Average Revenue per Customer = DIVIDE([Total Revenue],[Total Customers],0)
+
+New Customers = [Total Customers] - [Retained Customers]
+
+Retained Customers = CALCULATE(COUNTROWS(INTERSECT(VALUES(Orders[customer_id]), CALCULATETABLE(VALUES(Orders[customer_id]),DATEADD(Calendar[date], -1, MONTH)))))
+
+Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0) 
+```
+
+
