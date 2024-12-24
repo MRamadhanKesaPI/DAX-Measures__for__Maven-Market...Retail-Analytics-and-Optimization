@@ -4,10 +4,10 @@ Exploratory Data Analysis (EDA) is the first step in Power BI, where I dive deep
 
 I start by connecting the cleaned and transformed PostgreSQL data to Power BI. Next, I verify that all date columns are in the correct short date format and ensure that all monetary values are properly formatted as currency. Since the relationships between tables were already defined in PostgreSQL, Power BI automatically establishes the connections.
 
-Following this, I focus on the key questions that guide the analysis. These questions are derived from the foundational DAX measures and will help in gaining valuable insights from the data. The questions explore various aspects of the business such as overall sales performance, product details, customer behavior, and operational efficiency. Here are the key questions for each area:
+Following this, I focus on the key questions that guide the analysis. These questions are derived from the foundational DAX measures and will help in gaining valuable insights from the data. The questions explore various aspects of the business such as executive summary, product performance, customer behavior, and operational efficiency. Here are the key questions for each area:
 
 1. Foundational Calculations
-2. Executive Dashboard
+2. Executive Summary
 3. Product Performance
 4. Customer Behavior
 5. Operational Efficiency
@@ -18,7 +18,7 @@ Following this, I focus on the key questions that guide the analysis. These ques
 - What do total revenue and cost metrics reveal about profitability?
 - How does total profit correlate with other performance metrics?
 
-**Note**: These measures will be used in subsequent sections to analyze product performance, customer behavior, and operational efficiency.
+**Note**: These measures will be used in subsequent sections to analyze executive summary, product performance, customer behavior, and operational efficiency.
 
 Below are the DAX measures.
 ```DAX
@@ -36,7 +36,7 @@ Total Profit = [Total Revenue] - [Total Cost]
 ```
 
 
-### 2. Executive Dashboard 
+### 2. Executive Summary
 - What is the overall sales trend?
 - What is the revenue trend over time?
 - Which country generates the most revenue?
