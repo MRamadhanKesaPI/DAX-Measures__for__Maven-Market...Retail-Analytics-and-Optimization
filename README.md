@@ -6,17 +6,19 @@ I start by connecting the cleaned and transformed PostgreSQL data to Power BI. N
 
 Following this, I focus on the key questions that guide the analysis. These questions are derived from the foundational DAX measures and will help in gaining valuable insights from the data. The questions explore various aspects of the business such as overall sales performance, product details, customer behavior, and operational efficiency. Here are the key questions for each area:
 
-1. Foundational Calculations in DAX
-2. Sales Topline Performance (DAX + Visual Report)
-3. Product Detail (DAX + Visual Report)
-4. Customer Detail (DAX + Visual Report)
-5. Operational Efficiency (DAX + Visual Report)
+1. Foundational Calculations
+2. Executive Dashboard
+3. Product Performance
+4. Customer Behavior
+5. Operational Efficiency
 
 
-### 1. Foundational Measures
+### 1. Foundational Calculations
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
 - What do total revenue and cost metrics reveal about profitability?
 - How does total profit correlate with other performance metrics?
+
+**Note**: These measures will be used in subsequent sections to analyze product performance, customer behavior, and operational efficiency.
 
 Below are the DAX measures.
 ```DAX
@@ -34,7 +36,7 @@ Total Profit = [Total Revenue] - [Total Cost]
 ```
 
 
-### 2. Sales Topline Performance 
+### 2. Executive Dashboard 
 - What is the overall sales trend?
 - What is the revenue trend over time?
 - Which country generates the most revenue?
@@ -43,6 +45,12 @@ Total Profit = [Total Revenue] - [Total Cost]
 
 Below are the DAX measures.
 ```DAX
+Total Sold = SUM(Orders[quantity])
+
+Total Revenue = SUMX(Orders,Orders[quantity] * RELATED(Products[product_retail_price]))
+
+Total Profit = [Total Revenue] - [Total Cost]
+
 Profit Margin = DIVIDE([Total Profit],[Total Revenue],0)
 
 Return Rate (%) = DIVIDE([Total Returns], [Total Sold], 0)
@@ -53,13 +61,19 @@ Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date],
 ```
 
 
-### 3. Product Detail 
+### 3. Product Performance
 - Which products have the best profit margins and still meet their sales targets?
 - Are there any hidden opportunities with products that have high profit margins but lower sales?
 - How can Maven Market improve 
 
 Below are the DAX measures.
 ```DAX
+Total Sold = SUM(Orders[quantity])
+
+Total Revenue = SUMX(Orders,Orders[quantity] * RELATED(Products[product_retail_price]))
+
+Total Profit = [Total Revenue] - [Total Cost]
+
 Previous Month Sold = CALCULATE([Total Sold], DATEADD('Calendar'[date], -1, MONTH))
 
 10 % Sold Target = [Previous Month Sold] * 1.1
@@ -87,13 +101,15 @@ Product Metric Selections = {
 ```
 
 
-### 4. Customer Detail
+### 4. Customer Behavior
 - What is the overall trend in customer growth?
 - How has customer behavior changed over time?
 - What patterns in customer demographics indicate opportunities for growth?
 
 Below are the DAX measures.
 ```DAX
+Total Revenue = SUMX(Orders,Orders[quantity] * RELATED(Products[product_retail_price]))
+
 Total Customers = DISTINCTCOUNT(Orders[customer_id])
 
 Average Revenue per Customer = DIVIDE([Total Revenue],[Total Customers],0)
@@ -112,6 +128,8 @@ Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0)
 
 Below are the DAX measures.
 ```DAX
+Total Profit = [Total Revenue] - [Total Cost]
+
 Revenue Per SQFT = [Total Revenue] / SUM(Stores[total_sqft])
 
 Order Frequency Per Customer = DIVIDE([Total Orders], [Total Customers], 0)
