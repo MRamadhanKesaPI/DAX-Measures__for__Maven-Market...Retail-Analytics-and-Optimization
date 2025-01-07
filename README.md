@@ -1,4 +1,4 @@
-# Exploratory Data Analysis
+# Data Analysis for Maven Market: Retail Analytics and Optimization
 
 Data analysis is the first step in Power BI, where I dive deep into the data to uncover key patterns using DAX measures.
 
