@@ -6,14 +6,14 @@ I start by connecting the cleaned and transformed PostgreSQL data to Power BI. N
 
 Following this, I focus on the key questions that guide the analysis. These questions are derived from the foundational DAX measures and will help in gaining valuable insights from the data. The questions explore various aspects of the business such as executive summary, product performance, customer behavior, and operational efficiency. Here are the key questions for each area:
 
-1. Foundational Calculations
-2. Executive Summary
-3. Product Performance
-4. Customer Behavior
-5. Operational Efficiency
+1. [Foundational Calculations](#foundational-calculations)
+2. [Executive Summary](#executive-summary)
+3. [Product Performance](#product-performance)
+4. [Customer Behavior](#customer-behavior)
+5. [Operational Efficiency](#operational-efficiency)
 
 
-### 1. Foundational Calculations
+### Foundational Calculations
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
 - What do total revenue and cost metrics reveal about profitability?
 - How does total profit correlate with other performance metrics?
@@ -36,7 +36,7 @@ Total Profit = [Total Revenue] - [Total Cost]
 ```
 
 
-### 2. Executive Summary
+### Executive Summary
 - What is the overall sales trend?
 - What is the revenue trend over time?
 - Which country generates the most revenue?
@@ -61,7 +61,7 @@ Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date],
 ```
 
 
-### 3. Product Performance
+### Product Performance
 - Which products have the best profit margins and still meet their sales targets?
 - Are there any hidden opportunities with products that have high profit margins but lower sales?
 - How can Maven Market improve 
@@ -101,7 +101,7 @@ Product Metric Selections = {
 ```
 
 
-### 4. Customer Behavior
+### Customer Behavior
 - What is the overall trend in customer growth?
 - How has customer behavior changed over time?
 - What patterns in customer demographics indicate opportunities for growth?
@@ -122,7 +122,7 @@ Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0)
 ```
 
 
-### 5. Operational Efficiency 
+### Operational Efficiency 
 - How does store performance vary across different country?
 - Are there specific stores that consistently underperform over time?
 
