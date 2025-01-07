@@ -1,6 +1,6 @@
 # Exploratory Data Analysis
 
-Exploratory Data Analysis (EDA) is the first step in Power BI, where I dive deep into the data to uncover key patterns using DAX measures.
+Data analysis is the first step in Power BI, where I dive deep into the data to uncover key patterns using DAX measures.
 
 I start by connecting the cleaned and transformed PostgreSQL data to Power BI. Next, I verify that all date columns are in the correct short date format and ensure that all monetary values are properly formatted as currency. Since the relationships between tables were already defined in PostgreSQL, Power BI automatically establishes the connections.
 
