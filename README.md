@@ -1,11 +1,10 @@
 # Data Analysis for Maven Market: Retail Analytics and Optimization
 
-Data analysis is the first step in Power BI, where I dive deep into the data to uncover key patterns using DAX measures.
+The cleaned and transformed data from PostgreSQL is connected to Power BI. Date columns are checked for proper format, and monetary values are set as currency. Power BI automatically creates the necessary relationships between tables, since the relationships already defined in PostgreSQL.
 
-I start by connecting the cleaned and transformed PostgreSQL data to Power BI. Next, I verify that all date columns are in the correct short date format and ensure that all monetary values are properly formatted as currency. Since the relationships between tables were already defined in PostgreSQL, Power BI automatically establishes the connections.
+The analysis focuses on key questions derived from DAX measures, aimed at understanding different aspects of the business. These questions cover the executive summary, product performance, customer behavior, and operational efficiency. 
 
-Following this, I focus on the key questions that guide the analysis. These questions are derived from the foundational DAX measures and will help in gaining valuable insights from the data. The questions explore various aspects of the business such as executive summary, product performance, customer behavior, and operational efficiency. Here are the key questions for each area:
-
+Here are the main questions for each area:
 1. [Foundational Calculations](#foundational-calculations)
 2. [Executive Summary](#executive-summary)
 3. [Product Performance](#product-performance)
@@ -15,8 +14,8 @@ Following this, I focus on the key questions that guide the analysis. These ques
 
 ## Foundational Calculations
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
-- What do total revenue and cost metrics reveal about profitability?
-- How does total profit correlate with other performance metrics?
+- What do revenue and cost metrics show about profitability?
+- How does total profit relate to other performance metrics?
 
 **Note**: These measures will be used in subsequent sections to analyze executive summary, product performance, customer behavior, and operational efficiency.
 
@@ -62,9 +61,9 @@ Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date],
 
 
 ## Product Performance
-- Which products have the best profit margins and still meet their sales targets?
-- Are there any hidden opportunities with products that have high profit margins but lower sales?
-- How can Maven Market improve 
+- Which products have the best profit margins and meet their sales targets?
+- Are there opportunities with products that have high profit margins but low sales?
+- How can Maven Market improve? 
 
 Below are the DAX measures.
 ```DAX
@@ -104,7 +103,7 @@ Product Metric Selections = {
 ## Customer Behavior
 - What is the overall trend in customer growth?
 - How has customer behavior changed over time?
-- What patterns in customer demographics indicate opportunities for growth?
+- What patterns in customer demographics show growth opportunities?
 
 Below are the DAX measures.
 ```DAX
@@ -123,9 +122,9 @@ Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0)
 
 
 ## Operational Efficiency 
-- How does store performance vary across different country?
-- Are there specific stores that consistently underperform over time?
-
+- How does store performance vary across countries?
+- Are there stores that consistently underperform over time?
+  
 Below are the DAX measures.
 ```DAX
 Total Profit = [Total Revenue] - [Total Cost]
