@@ -13,7 +13,7 @@ Following this, I focus on the key questions that guide the analysis. These ques
 5. [Operational Efficiency](#operational-efficiency)
 
 
-### Foundational Calculations
+## Foundational Calculations
 - How do key metrics like total orders, total sold, and total returns vary across different dimensions?
 - What do total revenue and cost metrics reveal about profitability?
 - How does total profit correlate with other performance metrics?
@@ -36,7 +36,7 @@ Total Profit = [Total Revenue] - [Total Cost]
 ```
 
 
-### Executive Summary
+## Executive Summary
 - What is the overall sales trend?
 - What is the revenue trend over time?
 - Which country generates the most revenue?
@@ -61,7 +61,7 @@ Previous Year YTD Revenue = CALCULATE([Total Revenue], DATEADD('Calendar'[date],
 ```
 
 
-### Product Performance
+## Product Performance
 - Which products have the best profit margins and still meet their sales targets?
 - Are there any hidden opportunities with products that have high profit margins but lower sales?
 - How can Maven Market improve 
@@ -101,7 +101,7 @@ Product Metric Selections = {
 ```
 
 
-### Customer Behavior
+## Customer Behavior
 - What is the overall trend in customer growth?
 - How has customer behavior changed over time?
 - What patterns in customer demographics indicate opportunities for growth?
@@ -122,7 +122,7 @@ Retained Customers (%) = DIVIDE([Retained Customers], [Total Customers], 0)
 ```
 
 
-### Operational Efficiency 
+## Operational Efficiency 
 - How does store performance vary across different country?
 - Are there specific stores that consistently underperform over time?
 
